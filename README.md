@@ -4,9 +4,9 @@
 1. Explore and use various tools such as: GitHub, VirtualBox, Tuffix, Linux Terminal, and Atom.
 1. Write a Python program using:
      1. modules
-     2. dictionaries
+     2. classes and objects
      3. file input/output
-     4. classes
+     4. exception handling
 1. Run and test a Python program.
 
 ## Getting Started
@@ -28,273 +28,87 @@
      ```
      
 ## Program Instructions
-1. Write a Python program that performs as a Tuffy Titan Contact List which contains a dictionary of contacts that is stored on the hard drive and that can have contacts added, modified, or deleted.
-1. Create a `contacts` module to meet the following requirements:
-     1. Create a file named `contacts.py`.
-          1. Define a class named `Contacts`.  
-               1. Define a member function named `__init__` to meet the following requirements:
-                    1. Take a `self` as a positional parameter.
-                    2. Take a `filename` as a keyword parameter.
-                    3. Set a member variable equal to the filename.
-                    4. Set a member varialbe equal to an empty data dictionary.
-                    5. Open the filename and load the JSON decoded contents to the empty data dictionary.
-                    6. Cleanly manage the `FileNotFoundError` if the filename does not exist.
-               1. Define a member function named `add_contact` to meet the following requirements:
-                    1. Take a `self` as a positional parameter.
-                    1. Take a `id` as a keyword parameter.
-                    1. Take a `first_name` as a keyword parameter.
-                    1. Take a `last_name` as a keyword parameter.
-                    2. If the id exists in the data dictionary, return the string `error`.
-                    3. Set the id:[first_name, last_name] key:value pair to the data dictionary.
-                    4. Sort the data dictionary in ascending order by last name, and then by first name, ignoring case.
-                    5. Write the contents of the data dictionary to the filename that was set to the member variable.
-                    6. Return the key:value pair that was added.
-               1. Define a member function named `modify_contact` to meet the following requirements:
-                    1. Take a `self` as a positional parameter.
-                    1. Take a `id` as a keyword parameter.
-                    1. Take a `first_name` as a keyword parameter.
-                    1. Take a `last_name` as a keyword parameter.
-                    1. If the id does not exists in the dictionary, return the string `error`.
-                    1. Set the id:[first_name, last_name'] key:value pair to the contact dictionary.
-                    4. Sort the data dictionary in ascending order by last name, and then by first name, ignoring case.
-                    5. Write the contents of the data dictionary to the filename that was set to the member variable.
-                    6. Return the key:value pair that was modified.
-               1. Define a member function named `delete_contact` to meet the following requirements:
-                    1. Take a `self` as a positional parameter.
-                    1. Take a `id` as a keyword parameter.
-                    2. If the id does not exists in the dictionary, return the string `error`.
-                    3. Remove the key:value pair with the key equal to id.
-                    5. Write the contents of the data dictionary to the filename that was set to the member variable.
-                    3. Return the key:value pair with the key equal to id.
-1. Create a `main` driver program to meet the following requirements:
-     1. Create a file named `main.py`.
-     1. Import the `contacts` module.
-     2. Instantiate a `Contacts` object with any default filename. 
-     3. Implement a menu within a loop with following choices:
-          1. Add contact
-          1. Modify contact
-          1. Delete contact
-          1. Print contact list
-          1. Set contact filename
-          1. Exit the program
-     4. Prompt the user for the menu choice.
-     5. Prompt the user for the information needed for the appropriate `Contacts` member function and call the function.
-     6. Print out appropriate errors with function return values of `error`.
-1. Run the program using the command below and repeat the steps above until you are satisfied your program output meets the above requirements.
+Title: Creating a Simple Banking System
+1. Create a Python program that simulates a basic banking system. The system should include the following:
 
-    ```
-    python3 -m main
-    ```
+   a. A `BankAccount` class that has the following attributes and methods:
+      - Attributes: `account_number`, `account_holder`, `balance`
+      - Methods: `deposit(amount)`, `withdraw(amount)`, `get_balance()`
 
+   b. Use a separate Python module for the custom exception classes. Import this module into your main program.
+      
+   c. Implement the `BankAccount` class to raise exceptions for the following scenarios:
+      - Trying to withdraw more money than the available balance should raise an `InsufficientFundsError` (a custom exception).
+      - Depositing or withdrawing a negative amount should raise a `NegativeAmountError` (a custom exception).
 
-1. Typical input and output for the program:
-     ```
-           *** TUFFY TITAN CONTACT MAIN MENU
+   d. Create a custom exception class `InsufficientFundsError` and `NegativeAmountError` for handling the exceptions in part c.
 
-     1. Add contact
-     2. Modify contact
-     3. Delete contact
-     4. Print contact list
-     5. Set contact filename
-     6. Exit the program
+2. In the main program:
+   a. Create two instances of the `BankAccount` class with following attributes:
+          101, "Alice", 1000
+          102, "Bob", 500
 
-     Enter menu choice: 1
+   b. Demonstrate the deposit and withdraw functionality for each account, making sure to handle exceptions where necessary using `try` and `except`.
+   c. After each transaction, display the current balance of the account.
 
-     Enter phone number: 7145551212
-     Enter first name: Steve
-     Enter last name: Jobs
-     Added: Steve Jobs.
+3. The program should run in a loop, allowing the user to perform multiple transactions until they choose to exit.
 
-           *** TUFFY TITAN CONTACT MAIN MENU
+4. Implement a module named `bank_exceptions` to define and store the custom exception classes.
 
-     1. Add contact
-     2. Modify contact
-     3. Delete contact
-     4. Print contact list
-     5. Set contact filename
-     6. Exit the program
+5. Make sure to test your program thoroughly by simulating various scenarios, including depositing negative amounts, withdrawing more than the available balance, and normal transactions.
 
-     Enter menu choice: 1
+6. Add comments and docstrings to explain the purpose and usage of classes, methods, and exceptions.
 
-     Enter phone number: 5625553333
-     Enter first name: Bill
-     Enter last name: Gates
-     Added: Bill Gates.
+Your program should showcase your understanding of classes, objects, try and except for exception handling, and the use of modules in Python.
 
-           *** TUFFY TITAN CONTACT MAIN MENU
+**Expected Output:**
 
-     1. Add contact
-     2. Modify contact
-     3. Delete contact
-     4. Print contact list
-     5. Set contact filename
-     6. Exit the program
+1: Successful Deposit
 
-     Enter menu choice: 4
+User selects option 1 (Deposit).
+User enters the deposit amount: $500.
+Expected Output:
+$500.0 deposited successfully. New balance: $1500.0
 
-     ==================== CONTACT LIST ====================
-     Last Name             First Name            Phone
-     ====================  ====================  ==========
-     Gates                 Bill                  5625553333  
-     Jobs                  Steve                 7145551212  
+2: Successful Withdrawal
 
-           *** TUFFY TITAN CONTACT MAIN MENU
+User selects option 2 (Withdraw).
+User enters the withdrawal amount: $300.
+Expected Output:
+$300.0 withdrawn successfully. New balance: $1200.0
 
-     1. Add contact
-     2. Modify contact
-     3. Delete contact
-     4. Print contact list
-     5. Set contact filename
-     6. Exit the program
+3: Insufficient Funds
 
-     Enter menu choice: 1
+User selects option 2 (Withdraw).
+User enters the withdrawal amount: $1500 (more than the balance).
+Expected Output:
+Insufficient funds. You tried to withdraw $1500, but your balance is only $1200.0.
 
-     Enter phone number: 7145551111
-     Enter first name: Alpha
-     Enter last name: Jobs
-     Added: Alpha Jobs.
+4: Negative Deposit Amount
 
-           *** TUFFY TITAN CONTACT MAIN MENU
+User selects option 1 (Deposit).
+User enters the deposit amount: -$200 (negative).
+Expected Output:
+Amount cannot be negative: $-200.0
 
-     1. Add contact
-     2. Modify contact
-     3. Delete contact
-     4. Print contact list
-     5. Set contact filename
-     6. Exit the program
+5: Checking Balance
 
-     Enter menu choice: 4
+User selects option 3 (Check Balance).
+Expected Output:
+Account balance for Alice: $1200.0
 
-     ==================== CONTACT LIST ====================
-     Last Name             First Name            Phone
-     ====================  ====================  ==========
-     Gates                 Bill                  5625553333  
-     Jobs                  Alpha                 7145551111  
-     Jobs                  Steve                 7145551212  
+6: Invalid Option
 
-           *** TUFFY TITAN CONTACT MAIN MENU
+User selects an invalid option (e.g., 5).
+Expected Output:
+Invalid choice. Please select a valid option.
 
-     1. Add contact
-     2. Modify contact
-     3. Delete contact
-     4. Print contact list
-     5. Set contact filename
-     6. Exit the program
+7: Exiting the Program
 
-     Enter menu choice: 1
+User selects option 4 (Exit).
+Expected Output:
+Exiting the program. Goodbye!
 
-     Enter phone number: 7145551111
-     Enter first name: Richard
-     Enter last name: Stallman
-     Phone number already exists.
-
-           *** TUFFY TITAN CONTACT MAIN MENU
-
-     1. Add contact
-     2. Modify contact
-     3. Delete contact
-     4. Print contact list
-     5. Set contact filename
-     6. Exit the program
-
-     Enter menu choice: 2
-
-     Enter phone number: 7145551111
-     Enter first name: Richard
-     Enter last name: Stallman
-     Modified: Richard Stallman.
-
-           *** TUFFY TITAN CONTACT MAIN MENU
-
-     1. Add contact
-     2. Modify contact
-     3. Delete contact
-     4. Print contact list
-     5. Set contact filename
-     6. Exit the program
-
-     Enter menu choice: 4
-
-     ==================== CONTACT LIST ====================
-     Last Name             First Name            Phone
-     ====================  ====================  ==========
-     Gates                 Bill                  5625553333  
-     Jobs                  Steve                 7145551212  
-     Stallman              Richard               7145551111  
-
-           *** TUFFY TITAN CONTACT MAIN MENU
-
-     1. Add contact
-     2. Modify contact
-     3. Delete contact
-     4. Print contact list
-     5. Set contact filename
-     6. Exit the program
-
-     Enter menu choice: 3
-
-     Enter phone number: 5625553333
-     Deleted: Bill Gates.
-
-           *** TUFFY TITAN CONTACT MAIN MENU
-
-     1. Add contact
-     2. Modify contact
-     3. Delete contact
-     4. Print contact list
-     5. Set contact filename
-     6. Exit the program
-
-     Enter menu choice: 4
-
-     ==================== CONTACT LIST ====================
-     Last Name             First Name            Phone
-     ====================  ====================  ==========
-     Jobs                  Steve                 7145551212  
-     Stallman              Richard               7145551111  
-
-           *** TUFFY TITAN CONTACT MAIN MENU
-
-     1. Add contact
-     2. Modify contact
-     3. Delete contact
-     4. Print contact list
-     5. Set contact filename
-     6. Exit the program
-
-     Enter menu choice: 3
-
-     Enter phone number: 7145559999
-     Invalid phone number.
-
-           *** TUFFY TITAN CONTACT MAIN MENU
-
-     1. Add contact
-     2. Modify contact
-     3. Delete contact
-     4. Print contact list
-     5. Set contact filename
-     6. Exit the program
-
-     Enter menu choice: 4
-
-     ==================== CONTACT LIST ====================
-     Last Name             First Name            Phone
-     ====================  ====================  ==========
-     Jobs                  Steve                 7145551212  
-     Stallman              Richard               7145551111  
-
-           *** TUFFY TITAN CONTACT MAIN MENU
-
-     1. Add contact
-     2. Modify contact
-     3. Delete contact
-     4. Print contact list
-     5. Set contact filename
-     6. Exit the program
-
-     Enter menu choice: 6
-     ```
 
 1. Run the unit testing program to ensure that your program runs as expected.
 
