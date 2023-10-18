@@ -67,7 +67,7 @@ Title: Creating a Simple Banking System
 Your program should showcase your understanding of classes, objects, try and except for exception handling, and the use of modules in Python.
 
 **Expected Output:**
-
+'''
 1: Successful Deposit
 
 User selects option 1 (Deposit).
@@ -113,7 +113,7 @@ Invalid choice. Please select a valid option.
 User selects option 4 (Exit).
 Expected Output:
 Exiting the program. Goodbye!
-
+'''
 
 1. Run the unit testing program to ensure that your program runs as expected.
 
