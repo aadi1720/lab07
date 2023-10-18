@@ -19,7 +19,7 @@
 
 1. Make a copy of this Github repository on your computer using the `git` and `clone` commands that you will input to the terminal. The commands take a URL as a parameter to specify where it can get a copy of the repository. You can find the URL by clicking on the green *Clone or download* button at the top right part of this page. Copy the URL and replace the example text shown below. Note that `username` should be replaced with your own Github username. When you hit <kbd>Enter</kbd> it will ask you to provide your Github username and token. Once done, you will have a copy of the repository on your computer.
     ```
-    git clone https://github.com/CSUF-CPSC223P-STMAY-2023S/lab07-username.git
+    git clone https://github.com/aadi1720/lab07-username.git
     ```
 1. Navigate into the new directory using the command line. Note that `username` should be replaced with your own Github username.  As a shortcut, you can type the first few letters of the folder name and press <kbd>Tab</kbd> so that it auto completes the folder name for you.
 
@@ -29,6 +29,11 @@
      
 ## Program Instructions
 Title: Creating a Simple Banking System
+
+**Files required:** (NOTE: Create the file names as specified)
+1. bank_system.py(main file)
+2. bank_exceptions.py**
+      
 1. Create a Python program that simulates a basic banking system. The system should include the following:
 
    a. A `BankAccount` class that has the following attributes and methods:
@@ -128,10 +133,11 @@ In case it asks you  to configure global variables for an email and name, just c
    <pre>git config --global user.email "<i>tuffy@csu.fullerton.edu</i>"<br>git config --global user.name "<i>Tuffy Titan</i>"<br>git commit -m "<i>your comment</i>"<br>git push</pre>
 
 When you completed the final Github push, go back into github.com through the browser interface and ensure all your files have been correctly updated.  You should have the following files:
+
 ```
-main.py
-contacts.py
-test.txt
+bank_system.py
+bank_exceptions.py
+
 ```
     
 ## Grading
@@ -140,11 +146,7 @@ test.txt
 | Points | Description |
 | --- | --- |
 |50|initial git clone of this repository to your Tuffix machine|
-|10|main.py file submitted and meets the program requirements |
-|10|contacts.py file submitted and meets the program requirements |
-|5|unit test passes Test01_AddContact|
-|5|unit test passes Test02_AddContact|
-|5|unit test passes Test03_ModifyContact|
-|5|unit test passes Test04_ModifyContact|
-|5|unit test passes Test05_DeleteContact|
-|5|unit test passes Test06_DeleteContact|
+|10|bank_system.py file submitted and meets the program requirements |
+|10|bank_exceptions.py file submitted and meets the program requirements |
+|30|unit test passes|
+
